@@ -17,8 +17,7 @@
     "start": "next start",
     "type-check": "tsc",
     "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
-    "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
-    "postinstall": "husky install"
+    "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write"
   },
   "lint-staged": {
     "./src/**/*.{ts,js,jsx,tsx}": [
@@ -49,8 +48,6 @@
     "@types/react-dom": "17.0.1",
     "@typescript-eslint/eslint-plugin": "4.15.2",
     "@typescript-eslint/parser": "4.15.2",
-    "commitizen": "4.2.3",
-    "cz-conventional-changelog": "3.3.0",
     "eslint": "7.20.0",
     "eslint-config-airbnb": "18.2.1",
     "eslint-config-prettier": "7.2.0",
@@ -61,15 +58,9 @@
     "eslint-plugin-react": "7.22.0",
     "eslint-plugin-react-hooks": "4.2.0",
     "graphql-let": "0.16.3",
-    "husky": "5.1.1",
     "lint-staged": "10.5.4",
     "prettier": "2.2.1",
     "typescript": "4.2.2",
     "yaml-loader": "0.6.0"
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
   }
 }
