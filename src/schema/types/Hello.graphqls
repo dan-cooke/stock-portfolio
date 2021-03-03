@@ -1,0 +1,11 @@
+type Hello {
+    world: String
+}
+
+type Query {
+    hello: Hello
+}
+
+type Mutation {
+    addHello(name: String!): Hello
+}
