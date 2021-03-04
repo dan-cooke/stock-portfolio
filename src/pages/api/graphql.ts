@@ -7,13 +7,15 @@ import {
   mergeResolvers,
   mergeTypeDefs,
 } from 'graphql-tools';
+import { portfolioResolvers } from '@/schema/Portfolio/Portfolio.resolvers';
 
 const typeDefsGlob = join(cwd(), `./src/schema/**/*types.gql`);
-const resolversGlob = join(cwd(), `./src/schema/**/*resolvers.ts`);
+// const resolversGlob = join(cwd(), `./src/schema/**/*resolvers.ts`);
 
 const typesArray = loadFilesSync(typeDefsGlob);
 
-const resolversArray = loadFilesSync(resolversGlob, { useRequire: false });
+// const resolversArray = loadFilesSync(resolversGlob, { useRequire: false });
+const resolversArray = [portfolioResolvers];
 
 const typeDefs = mergeTypeDefs(typesArray);
 const resolvers = mergeResolvers(resolversArray);

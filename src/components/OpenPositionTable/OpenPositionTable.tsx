@@ -8,19 +8,16 @@ import {
   TableRow,
 } from '@material-ui/core';
 import * as React from 'react';
+import useSelectedPosition from './useSelectedPosition';
 
 type OpenPositionTableProps = {
-  onPositionSelected: (pos: Position) => void;
-  openPositions: [Position];
+  openPositions: Position[];
 };
 
 const OpenPositionTable: React.FC<OpenPositionTableProps> = ({
-  onPositionSelected,
   openPositions,
 }) => {
-  const [selectedPosition, setSelectedPosition] = React.useState<
-    Position | undefined
-  >();
+  const { selectedPosition, toggleSelectedPosition } = useSelectedPosition();
   return (
     <Table component={Paper}>
       <Table size="small">
@@ -34,7 +31,13 @@ const OpenPositionTable: React.FC<OpenPositionTableProps> = ({
         <TableBody>
           {openPositions.map((position) => {
             return (
-              <TableRow selected={selectedPosition?.symbol === position.symbol}>
+              <TableRow
+                key={position.symbol}
+                selected={selectedPosition()?.symbol === position.symbol}
+                onClick={() => {
+                  toggleSelectedPosition(position);
+                }}
+              >
                 <TableCell>{position.symbol}</TableCell>
                 <TableCell>{position.numberOfShares}</TableCell>
                 <TableCell>{position.averagePrice}</TableCell>
