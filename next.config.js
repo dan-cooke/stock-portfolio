@@ -1,12 +1,12 @@
 module.exports = {
   webpack: (config, { defaultLoaders }) => {
     config.module.rules.push({
-      test: /\.graphql$/,
+      test: /\.document.gql$/,
       exclude: /node_modules/,
       use: [defaultLoaders.babel, 'graphql-let/loader'],
     });
     config.module.rules.push({
-      test: /\.graphqls$/,
+      test: /\.types.gql$/,
       exclude: /node_modules/,
       use: ['graphql-let/schema/loader'],
     });

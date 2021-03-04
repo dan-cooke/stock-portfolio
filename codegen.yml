@@ -1,0 +1,9 @@
+schema: ./**/*.types.gql
+documents: "**/*.document.gql"
+generates:
+  src/resolver-types.ts:
+    config:
+      useIndexSignature: true
+    plugins:
+      - typescript
+      - typescript-resolvers

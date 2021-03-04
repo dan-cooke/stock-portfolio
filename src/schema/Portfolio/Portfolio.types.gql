@@ -1,0 +1,34 @@
+type Portfolio {
+    cash: Float
+    openPositions: [Position!]
+}
+
+type Position {
+    symbol: String!
+    numberOfShares: Float!
+    changeUSD: Float!
+    changePercent: Float!
+    averagePrice: Float!
+    costBasis: Float!
+    currentPrice: Float!
+    profitLossPercent: Float!
+    profitLossUSD: Float!
+    dailyProfitLossUSD: Float!
+    exposure: Float!
+}
+
+type Query {
+    portfolio: Portfolio
+}
+
+input PositionInput {
+    symbol: String!
+    numberOfShares: Float!
+    averagePrice: Float!
+}
+
+type Mutation {
+    addPosition(position: PositionInput!): Portfolio
+    addCash(amountInUSD: Float!): Portfolio
+    closePosition(symbol: String!, numberOfShares: Float!): Portfolio
+}

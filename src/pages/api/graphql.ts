@@ -1,23 +1,22 @@
 import { ApolloServer } from 'apollo-server-micro';
+import { join } from 'path';
+import { cwd } from 'process';
 import {
   loadFilesSync,
   makeExecutableSchema,
+  mergeResolvers,
   mergeTypeDefs,
 } from 'graphql-tools';
-// import { schema as schemaGlob } from '../../../.graphql-let.yml';
 
-const typesArray = loadFilesSync(`**/*.graphqls`);
+const typeDefsGlob = join(cwd(), `./src/schema/**/*types.gql`);
+const resolversGlob = join(cwd(), `./src/schema/**/*resolvers.ts`);
+
+const typesArray = loadFilesSync(typeDefsGlob);
+
+const resolversArray = loadFilesSync(resolversGlob, { useRequire: false });
 
 const typeDefs = mergeTypeDefs(typesArray);
-const resolvers = {
-  Query: {
-    hello() {
-      return {
-        world: `hello world!`,
-      };
-    },
-  },
-};
+const resolvers = mergeResolvers(resolversArray);
 
 const schema = makeExecutableSchema({ typeDefs, resolvers });
 

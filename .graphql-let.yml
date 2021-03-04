@@ -1,6 +1,7 @@
-schema: src/schema/**/*.graphqls
-documents: "**/*.graphql"
+schema: ./**/*.types.gql
+documents: "**/*.document.gql"
 plugins:
   - typescript
   - typescript-operations
+  - typescript-resolvers
   - typescript-react-apollo

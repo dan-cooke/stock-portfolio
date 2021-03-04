@@ -1,0 +1,13 @@
+query portfolio {
+    portfolio {
+        cash
+        openPositions {
+            symbol
+            currentPrice
+            averagePrice
+            numberOfShares
+            profitLossPercent
+            profitLossUSD
+        }
+    }
+}

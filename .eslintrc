@@ -17,6 +17,7 @@
   "plugins": ["import", "jsx-a11y", "react", "react-hooks", "prettier"],
   "extends": ["airbnb", "eslint-config-prettier", "prettier/react"],
   "rules": {
+    "arrow-body-style": "off",
     "prettier/prettier": "error",
     "camelcase": "off",
     "import/prefer-default-export": "off",
